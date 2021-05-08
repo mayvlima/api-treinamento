@@ -1,27 +1,45 @@
 package com.magalu.treinamento.api.TreinamentoAPI.dominio.servicos;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.magalu.treinamento.api.TreinamentoAPI.domain.entidades.Cliente;
 import com.magalu.treinamento.api.TreinamentoAPI.domain.servicos.ClienteServico;
-import com.magalu.treinamento.api.TreinamentoAPI.infra.db.ClienteDb;
-import org.junit.Assert;
+
+import org.apache.tomcat.util.threads.TaskThread;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class ClienteServicoTests {
-
     @Test
-    void salvarCliente() {
+    void salvarCliente() throws InterruptedException {
+        // TaskThread.sleep(100);
+
         Cliente cliente = new Cliente();
         cliente.setId(1);
         cliente.setNome("Aluno");
         cliente.setCpf("0000000");
-        cliente.setTelefone("(00)0000-000");
-        cliente.setSenha("12375");
-        ClienteDb.clientes.add(cliente);
+        cliente.setTelefone("(00)00000-0000");
+        cliente.setSenha("1234321");
 
-        Assert.assertEquals(ClienteServico.Lista().size(), 1);
+        ClienteServico.adicionar(cliente);
+
+        assertEquals(ClienteServico.Lista().size(), 1);
     }
 
+    // @Test
+    // void apagaCliente() throws InterruptedException {
+
+    //   Cliente cliente = new Cliente();
+    //   cliente.setId(1);
+    //   cliente.setNome("Aluno");
+    //   cliente.setCpf("0000000");
+    //   cliente.setTelefone("(00)00000-0000");
+    //   cliente.setSenha("1234321");
+    //   ClienteServico.adicionar(cliente);
+
+    //   ClienteServico.delete(1);
+
+    //   assertEquals(ClienteServico.Lista().size(), 0);
+    // }
 }
