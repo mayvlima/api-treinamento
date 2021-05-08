@@ -2,7 +2,9 @@ package com.magalu.treinamento.api.TreinamentoAPI.dominio.servicos;
 
 
 import com.magalu.treinamento.api.TreinamentoAPI.domain.entidades.Cliente;
+import com.magalu.treinamento.api.TreinamentoAPI.domain.servicos.ClienteServico;
 import com.magalu.treinamento.api.TreinamentoAPI.infra.db.ClienteDb;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -19,7 +21,7 @@ public class ClienteServicoTests {
         cliente.setSenha("12375");
         ClienteDb.clientes.add(cliente);
 
-
+        Assert.assertEquals(ClienteServico.Lista().size(), 1);
     }
 
 }

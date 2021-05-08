@@ -1,11 +1,11 @@
 package com.magalu.treinamento.api.TreinamentoAPI.domain.modelViews;
 
-public class ClienteMessage {
 
+public class ClienteMessage {
     private String mensagem;
 
     public ClienteMessage(String mensagem){
-        this.mensagem = mensagem;
+        this.setMensagem(mensagem);
     }
 
     public String getMensagem() {

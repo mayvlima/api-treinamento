@@ -1,7 +1,7 @@
 package com.magalu.treinamento.api.TreinamentoAPI.domain.modelViews;
 
 public class Home {
-    public String getNome(){
-        return "{'mensagem': 'Oláaaaaa'}";
+    public String getMensagem() {
+        return "Bem vindo meninas da turma magalu";
     }
 }
